@@ -16,6 +16,7 @@ const timeElement = document.getElementById("time") as HTMLElement;
 const startButton = document.getElementById("start") as HTMLButtonElement;
 
 console.log("イイ感じにbuildできていますよ！！！！")
+console.log("イイ感じにgitのステータスが反映されていましたよ")
 
 console.log('Word List:', wordlist);
 // ゲーム状態
