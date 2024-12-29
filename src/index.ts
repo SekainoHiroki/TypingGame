@@ -10,6 +10,7 @@ const words: wordObject[] = wordlist
 
 // HTML要素の取得
 const wordElement = document.getElementById("word") as HTMLElement;
+const spellElement = document.getElementById("spell") as HTMLElement;
 const inputElement = document.getElementById("input") as HTMLInputElement;
 const scoreElement = document.getElementById("score") as HTMLElement;
 const timeElement = document.getElementById("time") as HTMLElement;
@@ -24,7 +25,7 @@ const test:wordObject = wordlist[0]
 
 let score: number = 0;
 let time: number = 30;
-let currentWord: wordObject = {"name":"","spell":""};
+let currentWord: wordObject = {"name":"","spell":""}
 let timer: any;
 
 // ランダムな単語を取得
@@ -35,8 +36,13 @@ function getRandomWord(): wordObject {
 // 新しい単語を表示
 function setNewWord() {
   currentWord = getRandomWord();
-  wordElement.textContent = currentWord.spell;
+  wordElement.textContent = currentWord.name;
   inputElement.value = "";
+}
+
+// 新しい単語を表示
+function setNewSpell() {
+  spellElement.textContent = currentWord.spell;
 }
 
 // スコアを更新
@@ -85,6 +91,7 @@ function startGame() {
   setNewWord();
   updateScore();
   countdown();
+  setNewSpell();
 }
 
 // 入力チェック
@@ -92,6 +99,7 @@ inputElement.addEventListener("input", () => {
   if (inputElement.value.trim() === currentWord.spell) {
     updateScore();
     setNewWord();
+    setNewSpell();
   }
 });
 
