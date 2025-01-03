@@ -1,35 +1,31 @@
 import wordlist from './data/wordlist.json';
-// 単語リスト
 
-type wordObject = {
-  "name":string,
-  "spell":string
-}
+// 単語リストの型定義
+type WordObject = {
+  name: string;
+  spell: string;
+};
 
-const words: wordObject[] = wordlist
+const words: WordObject[] = wordlist;
 
 // HTML要素の取得
-const wordElement = document.getElementById("word") as HTMLElement;
-const spellElement = document.getElementById("spell") as HTMLElement;
-const inputElement = document.getElementById("input") as HTMLInputElement;
-const scoreElement = document.getElementById("score") as HTMLElement;
-const timeElement = document.getElementById("time") as HTMLElement;
-const startButton = document.getElementById("start") as HTMLButtonElement;
+const wordElement = document.getElementById('word') as HTMLElement;
+const spellElement = document.getElementById('spell') as HTMLElement;
+const inputElement = document.getElementById('input') as HTMLInputElement;
+const scoreElement = document.getElementById('score') as HTMLElement;
+const timeElement = document.getElementById('time') as HTMLElement;
+const startButton = document.getElementById('start') as HTMLButtonElement;
+const transitionButton = document.getElementById('topButton') as HTMLButtonElement;
+const gameScreen = document.getElementById("game") as HTMLElement
 
-console.log("イイ感じにbuildできていますよ！！！！")
-console.log("イイ感じにgitのステータスが反映されていましたよ")
-
-console.log('Word List:', wordlist);
 // ゲーム状態
-const test:wordObject = wordlist[0]
-
 let score: number = 0;
 let time: number = 30;
-let currentWord: wordObject = {"name":"","spell":""}
+let currentWord: WordObject = { name: '', spell: '' };
 let timer: any;
 
 // ランダムな単語を取得
-function getRandomWord(): wordObject {
+function getRandomWord(): WordObject {
   return words[Math.floor(Math.random() * words.length)];
 }
 
@@ -37,10 +33,10 @@ function getRandomWord(): wordObject {
 function setNewWord() {
   currentWord = getRandomWord();
   wordElement.textContent = currentWord.name;
-  inputElement.value = "";
+  inputElement.value = '';
 }
 
-// 新しい単語を表示
+// スペルを表示
 function setNewSpell() {
   spellElement.textContent = currentWord.spell;
 }
@@ -74,10 +70,11 @@ function endGame() {
 function resetGame() {
   score = 0;
   time = 30;
-  scoreElement.textContent = "スコア: 0";
-  timeElement.textContent = "残り時間: 30秒";
-  wordElement.textContent = "";
-  inputElement.value = "";
+  scoreElement.textContent = 'スコア: 0';
+  timeElement.textContent = '残り時間: 30秒';
+  wordElement.textContent = '';
+  spellElement.textContent = '';
+  inputElement.value = '';
   inputElement.disabled = true;
   startButton.disabled = false;
 }
@@ -89,13 +86,14 @@ function startGame() {
   startButton.disabled = true;
   inputElement.disabled = false;
   setNewWord();
+  setNewSpell();
   updateScore();
   countdown();
-  setNewSpell();
 }
 
+
 // 入力チェック
-inputElement.addEventListener("input", () => {
+inputElement.addEventListener('input', () => {
   if (inputElement.value.trim() === currentWord.spell) {
     updateScore();
     setNewWord();
@@ -103,6 +101,16 @@ inputElement.addEventListener("input", () => {
   }
 });
 
-// スタートボタンのイベント
-startButton.addEventListener("click", startGame);
+// イベントリスナーの設定
+if (startButton) {
+  startButton.addEventListener('click', startGame);
+}
+
+gameScreen.classList.toggle('hidden')
+gameScreen.classList.add('hidden'); // 非表示にする
+
+transitionButton.addEventListener("click",()=>{
+  gameScreen.classList.toggle('hidden')
+})
+
 
