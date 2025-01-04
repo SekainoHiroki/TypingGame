@@ -44,14 +44,14 @@ function setNewSpell() {
 
 // スコアを更新
 function updateScore() {
-  score++;
+  score += 10;
   scoreElement.textContent = `スコア: ${score}`;
 }
 
 // 時間をカウントダウン
 function countdown() {
   timer = setInterval(() => {
-    time--;
+    time -= 1
     timeElement.textContent = `残り時間: ${time}秒`;
 
     if (time <= 0) {
