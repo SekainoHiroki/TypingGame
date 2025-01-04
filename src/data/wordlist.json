@@ -1,8 +1,15 @@
 [
     {"name":"レガレイラ","spell":"regaleira","difficulty":"easy"},
-    {"name":"武豊","spell":"taakeyutaka","difficulty":"easy"},
+    {"name":"騎手","spell":"kishu","difficulty":"easy"},
     {"name":"ウマ娘","spell":"umamusume","difficulty":"easy"},
     {"name":"掛かる","spell":"kakaru","difficulty":"easy"},
-    {"name":"気性難","spell":"kishounan","difficulty":"easy"}
+    {"name":"気性難","spell":"kishounan","difficulty":"easy"},
+    {"name":"仕掛ける","spell":"sikakeru","difficulty":"easy"},
+    {"name":"逃げ","spell":"nige","difficulty":"easy"},
+    {"name":"差し","spell":"sasi","difficulty":"easy"},
+    {"name":"追い込み","spell":"oikomi","difficulty":"easy"},
+    {"name":"大逃げ","spell":"oonige","difficulty":"easy"},
+    {"name":"種牡馬","spell":"shuboba","difficulty":"easy"}
+
 
   ]

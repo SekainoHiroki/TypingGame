@@ -16,6 +16,7 @@ const scoreElement = document.getElementById('score') as HTMLElement;
 const timeElement = document.getElementById('time') as HTMLElement;
 const startButton = document.getElementById('start') as HTMLButtonElement;
 const transitionButton = document.getElementById('topButton') as HTMLButtonElement;
+const top = document.getElementById("top") as HTMLElement
 const gameScreen = document.getElementById("game") as HTMLElement
 
 // ゲーム状態
@@ -111,6 +112,9 @@ gameScreen.classList.add('hidden'); // 非表示にする
 
 transitionButton.addEventListener("click",()=>{
   gameScreen.classList.toggle('hidden')
+  transitionButton.classList.add('hidden')
+  transitionButton.remove()
+  top.remove()
 })
 
 

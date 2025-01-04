@@ -4,6 +4,14 @@ body {
   margin: 0;
 }
 
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
 #game {
   display: flex;
   flex-direction: column;
@@ -33,6 +41,21 @@ body {
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.topButtonDesign {
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .hidden {
